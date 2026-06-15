@@ -12,9 +12,11 @@ app.use(express.json());
 
 // Import API Routers
 const issueRoutes = require('./routes/issueRoutes');
+const authRoutes = require('./routes/authRoutes'); // <-- 1. Import the new auth routes
 
 // Mount Routers onto Explicit Versioned/Scoped API Endpoints
 app.use('/api/issues', issueRoutes);
+app.use('/api/users', authRoutes); // <-- 2. Mount the auth router
 
 // Base Diagnostic Route
 app.get('/', (req, res) => {
