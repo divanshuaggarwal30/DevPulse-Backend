@@ -9,9 +9,12 @@ const PORT = process.env.PORT || 5000;
 // Core Middleware Configuration
 // Explicitly whitelist your Vercel frontend domain
 app.use(cors({
-  origin: 'https://devpulse-frontend.vercel.app', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: [
+      'https://dev-pulse-frontend-eight.vercel.app', 
+      'https://devpulse-frontend.vercel.app'
+    ],  
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
