@@ -1,26 +1,23 @@
 const mongoose = require('mongoose');
 
-const issueSchema = new mongoose.Schema({
+const issueSchema = mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User' // Links the issue to the person who created it
+  },
   title: {
     type: String,
-    required: [true, 'Please add an issue title'],
-    trim: true
-  },
-  repository: {
-    type: String,
-    required: [true, 'Please specify the repository']
+    required: true
   },
   description: {
     type: String,
-    required: [true, 'Please add a description']
+    required: true
   },
   status: {
     type: String,
-    enum: ['Open', 'In Progress', 'Resolved'],
     default: 'Open'
   }
-}, {
-  timestamps: true // Automatically adds createdAt and updatedAt fields
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Issue', issueSchema);
