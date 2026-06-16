@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({
   origin: [
       'https://dev-pulse-frontend-eight.vercel.app', 
-      'https://devpulse-frontend.vercel.app'
+      'https://devpulse-frontend.vercel.app',
+      'https://devpulse-telemetry.vercel.app'
     ],  
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
